@@ -30,11 +30,11 @@ public class FrontToAIController {
         file.transferTo(saveFile);
 
         String savedImagePath = saveFile.getAbsolutePath();
-        System.out.println("File saved at: " + savedImagePath);
+        //System.out.println("File saved at: " + savedImagePath);
 
         Map<String, Object> response = FrontToAI_service.GetInfoFromAI(agri_id, savedImagePath);
 
-        System.out.println("2 : " + response);
+        //System.out.println("2 : " + response);
 
         if (lat != 0 && lng != 0) // 50퍼보다 확률 크면 위도,경도 bug_location db에 저장
         {
@@ -60,7 +60,7 @@ public class FrontToAIController {
         String base64Encoded = encodeImageToBase64(imageUrl);
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("imageUrl", base64Encoded);
-        System.out.println(response);
+        //System.out.println(response);
         return (response);
     }
 
@@ -76,15 +76,15 @@ public class FrontToAIController {
         String base64Encoded2 = encodeImageToBase64(LarvaimageUrl);
         String base64Encoded3 = encodeImageToBase64(EggimageUrl);
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("url1", base64Encoded1);
+        response.put("url3", base64Encoded1);
         response.put("url2", base64Encoded2);
-        response.put("url3", base64Encoded3);
+        response.put("url1", base64Encoded3);
         response.put("insectInfoText", insect_info);
         response.put("insectCM", insectCM);
 
-        System.out.println(base64Encoded1);
-        System.out.println(insect_info);
-        System.out.println(insectCM);
+        //System.out.println(base64Encoded1);
+        //System.out.println(insect_info);
+        //System.out.println(insectCM);
         return (response);
     }
 
@@ -106,7 +106,7 @@ public class FrontToAIController {
                 .map(this::convertMarkerToMap)
                 .collect(Collectors.toList());
         // Print the result to the console
-        System.out.println(markers);
+        //System.out.println(markers);
 
         return markers;
     }

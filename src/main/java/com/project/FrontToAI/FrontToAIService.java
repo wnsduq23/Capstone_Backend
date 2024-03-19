@@ -43,7 +43,7 @@ public class FrontToAIService
         } catch (InterruptedException e) {
             throw new IOException("Command execution interrupted", e);
         }
-        System.out.println("1 : " + output.toString().trim());
+        //System.out.println("1 : " + output.toString().trim());
         return output.toString().trim();
     }
     public Map<String, Object> GetInfoFromAI(Integer agri_id, String photo) throws IOException // 작물 id, jpg 이미지 파일
@@ -51,14 +51,14 @@ public class FrontToAIService
 
         String aiServerUrl = "http://3.34.48.13:8000/send_json";
         String curlCommand = "curl -X POST -F \"file=@" + photo + "\" -F \"crop_type=" + agri_id.toString() + "\" " + aiServerUrl;
-        System.out.println(curlCommand);
+        //System.out.println(curlCommand);
 
         //--------------------****-----------------------------
         String aiServerResponse = executeCommand(curlCommand);
 
 
         //--------------------%%%%%%%---------------------------
-        System.out.println("4 : " + aiServerResponse);
+        //System.out.println("4 : " + aiServerResponse);
         // Initialize Jackson ObjectMapper
         ObjectMapper objectMapper = new ObjectMapper();
 
